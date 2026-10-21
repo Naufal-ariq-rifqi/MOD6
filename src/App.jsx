@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
+import KartuMenu from './Component/KartuMenu.jsx'
+import Panel from './Component/Panel.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
   const jd = {
     color: 'black'
   }
@@ -13,7 +10,7 @@ function App() {
   const N = 59;
   const jam = 9;
   return (
-    <body>
+    <div>
       <h2 className='judul' style={jd}>KANTIN Naufal</h2>
        <p>{
         jam < 12 ? "Selamat Pagi" : "Selamat Siang"
@@ -21,7 +18,12 @@ function App() {
       </p>
       <p>Saldo awal kartu kantin: Rp {N * 1000}</p>
       <button disabled>Bayar</button>
-    </body>
+      <Panel judul="Menu Hari Ini">
+        <KartuMenu nama="Nasi Goreng" harga={15000} />
+        <KartuMenu nama="Es Teh" harga={5000} kategori="Minuman" />
+        <KartuMenu nama="Ayam Bakar" harga={20000} />
+      </Panel>
+    </div>
   )
 }
 
